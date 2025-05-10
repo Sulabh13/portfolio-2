@@ -1,998 +1,1146 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Personal Portfolio - Sulabh Hathi</title>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Portfolio - Sulabh Hathi</title>
+    
   <link rel="shortcut icon" href="sulabh.png" style="height: 500px;" type="image/x-icon">
 
-  <!-- Add CSS to prevent horizontal scrolling -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <!-- Add CSS to prevent horizontal scrolling -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+      }
+      
+      .container-fluid {
+        max-width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        overflow-x: hidden;
+      }
+      
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .row {
+        margin-right: 0;
+        margin-left: 0;
+        width: 100%;
+      }
+      
+      .card {
+        height: 300px;
+        width: 100%;
+      }
+      
+      [class*="col-"] {
+        padding-right: 15px;
+        padding-left: 15px;
+        width: 100%;
+      }
 
-    body {
-      overflow-x: hidden;
-      width: 100%;
-    }
+      /* Additional fixes for mobile and tablet */
+      @media (max-width: 768px) {
+        .container-fluid {
+          padding-right: 10px;
+          padding-left: 10px;
+        }
+        
+        .row {
+          margin: 0;
+        }
+        
+        [class*="col-"] {
+          padding-right: 10px;
+          padding-left: 10px;
+        }
+      }
+    </style>
 
-    .container-fluid {
-      max-width: 100%;
-      padding-right: 15px;
-      padding-left: 15px;
-    }
+    <!-- bootstrap css cdn link  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
 
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+    <!-- custom css file -->
+    <link rel="stylesheet" href="css/style.css" />
 
-    .row {
-      margin-right: 0;
-      margin-left: 0;
-    }
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    .card {
-      height: 300px;
-    }
+    <!-- font awasom cdn -->
 
-    [class*="col-"] {
-      padding-right: 15px;
-      padding-left: 15px;
-    }
-  </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- bootstrap css cdn link  -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <!-- bootstrap icon cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
 
-  <!-- custom css file -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- google font link -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-
-  <!-- font awasom cdn -->
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- bootstrap icon cdn link  -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
-
-  <!-- for adding animation to website we have use AOS library 
+    <!-- for adding animation to website we have use AOS library 
     AOS Library css file cdn link -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-  <!-- jquery cdn link  -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-</head>
+    <!-- jquery cdn link  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body>
 
-<body>
+    <!-- navbar starts -->
+     
+    <nav
+      id="navbar-top"
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top"
+    >
+      <div class="container-fluid px-5 justify-content-end ">
+        <a class="navbar-brand fw-bold fs-2" href="#" style="color: #3f396d"
+          ></a
+        >
+        <button
+          class="nav-menu d-md-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <i class="bi bi-menu-button-fill "></i>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav gap-4" style="font-size: 1.1rem">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#service">Service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonial">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">Blog</a>
+            </li>
+          </ul>
+        </div>
 
-  <!-- navbar starts -->
-
-  <nav id="navbar-top" class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
-    <div class="container-fluid px-5 justify-content-end ">
-      <a class="navbar-brand fw-bold fs-2" href="#" style="color: #3f396d"></a>
-      <button class="nav-menu d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <i class="bi bi-menu-button-fill "></i>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav gap-4" style="font-size: 1.1rem">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#service">Service</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#testimonial">Testimonials</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#blog">Blog</a>
-          </li>
-        </ul>
-      </div>
-
-      <a href="#contact">
+        <a href="#contact">
         <button class="c-btn ms-4 py-2 px-4 rounded-pill d-none d-md-block  ">Contact</button>
       </a>
-    </div>
-  </nav>
-  <!-- navbar ends here -->
+      </div>
+    </nav>
+    <!-- navbar ends here -->
 
-  <!-- home section starts  -->
-  <section class="home pt-5 pb-5" id="home">
-    <div class="row justify-content-evenly align-middle">
-      <!-- here data-aos is used for adding aos animation  -->
-      <div class="col-10 col-md-6 text-center text-md-start" data-aos="slide-right">
-        <h2 style="color: #3f396d">
-          Hello! I Am <br />
-          <!-- <span class="c-orange">Sulabh Hathi </span> -->
+    <!-- home section starts  -->
+    <section class="home pt-5 pb-5" id="home">
+      <div class="row justify-content-evenly align-middle">
+        <!-- here data-aos is used for adding aos animation  -->
+        <div class="col-10 col-md-6 text-center text-md-start" data-aos="slide-right">
+          <h2 style="color: #3f396d">
+            Hello! I Am <br />
+            <!-- <span class="c-orange">Sulabh Hathi </span> -->
 
 
-          <h1>Sulabh Hathi <br>
-            <span>hello</span>
+            <h1>Sulabh Hathi <br>
+              <span>hello</span>
+              <br>
+
+            </h1>
+
+
+          </h2>
+          <p class="text-muted">
+            Building responsive, user-friendly applications from concept to deployment with expertise in front-end and back-end development.
             <br>
+            <br>
+            
 
-          </h1>
+              
+                  <!-- icon start -->
+            <a href="https://in.linkedin.com/in/sulabh-hathi-933a512b5" target="blank" class="home_social-icon">
+              <i class="fa-brands fa-linkedin fa-2xl" style="color: #0077b5; margin-right: 20px;"></i>
+              
+            </a>
+            
 
+            <a href="https://github.com/Sulabh13" target="blank" class="home_social-icon">
+              <i class="fa-brands fa-github fa-2xl" style="color: black; margin-right: 20px;"></i>
+              
+            </a>
 
-        </h2>
-        <p class="text-muted">
-          Building responsive, user-friendly applications from concept to deployment with expertise in front-end and
-          back-end development.
-          <br>
-          <br>
-
-
-
-          <!-- icon start -->
-          <a href="https://in.linkedin.com/in/sulabh-hathi-933a512b5" target="blank" class="home_social-icon">
-            <i class="fa-brands fa-linkedin fa-2xl" style="color: #0077b5; margin-right: 20px;"></i>
-
-          </a>
-
-
-          <a href="https://github.com/Sulabh13" target="blank" class="home_social-icon">
-            <i class="fa-brands fa-github fa-2xl" style="color: black; margin-right: 20px;"></i>
-
-          </a>
-
-          <a href="https://www.instagram.com/im_sulabh13?igsh=azM0MjF2d3FnYXJh">
-            <i class="fa-brands fa-instagram fa-2xl" style="color: #B197FC; margin-right: 20px;"></i>
-          </a>
+            <a href="https://www.instagram.com/im_sulabh13?igsh=azM0MjF2d3FnYXJh">
+      <i class="fa-brands fa-instagram fa-2xl" style="color: #B197FC; margin-right: 20px;"></i>   
+            </a>
 
 
-        </p>
+          </p>
 
 
-        <!-- ======================================== -->
+                 <!-- ======================================== -->
 
+  
+              
 
-
-
-        <a href="mailto:kumarsulabh2003@gmail.com"><button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
+          <a href="mailto:kumarsulabh2003@gmail.com"><button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
             Hire Me
           </button> </a>
-        <a href="" class="link ms-4 d-none">See My Work</a>
+          <a href="" class="link ms-4 d-none">See My Work</a>
+        </div>
+        <div class="col-10 col-md-4 d-none d-md-block">
+          <img src="/sulmedia/WhatsApp_Image_2025-04-08_at_2.49.04_AM-removebg-preview (1).png" id="wimg"   class="img-fluid" alt="" />
+        </div>
       </div>
-      <div class="col-10 col-md-4 d-none d-md-block">
-        <img src="/sulmedia/WhatsApp_Image_2025-04-08_at_2.49.04_AM-removebg-preview (1).png" id="wimg"
-          class="img-fluid" alt="" />
-      </div>
-    </div>
-  </section>
-  <!-- home section ends here -->
+    </section>
+    <!-- home section ends here -->
 
-  <!-- expertise section starts -->
-  <section class="expertise mt-5" id="service">
-    <div class="heading text-center">
-      <small>My Expertise</small>
-      <h3>
-        Provide Wide Range of <br />
-        Digital Services
-      </h3>
-    </div>
-    <div class="row justify-content-evenly mt-5">
-      <div class="col-10 col-md-4" data-aos="fade-up">
-        <div class="service-card">
-          <div class="img">
-            <img src="sulmedia\service-icon1.png" class="w-25 img-fluid img" alt="" />
+    <!-- expertise section starts -->
+    <section class="expertise mt-5" id="service">
+      <div class="heading text-center">
+        <small>My Expertise</small>
+        <h3>
+          Provide Wide Range of <br />
+          Digital Services
+        </h3>
+      </div>
+      <div class="row justify-content-evenly mt-5">
+        <div class="col-10 col-md-4" data-aos="fade-up">
+          <div class="service-card">
+            <div class="img">
+              <img
+                src="sulmedia\service-icon1.png"
+                class="w-25 img-fluid img"
+                alt=""
+              />
+            </div>
+            <div class="content mt-3">
+              <h4>Web Design</h4>
+              <p class="text-muted">
+                Creating modern, intuitive, and responsive designs that elevate user experience.
+              </p>
+              <a href="" class="link">Read More</a>
+            </div>
           </div>
-          <div class="content mt-3">
-            <h4>Web Design</h4>
+        </div>
+        <div class="col-md-4 col-10" data-aos="fade-up">
+          <div class="service-card">
+            <div class="img">
+              <img
+                src="sulmedia\service-icon2.png"
+                class="w-25 img-fluid img"
+                alt=""
+              />
+            </div>
+            <div class="content mt-3">
+              <h4>Web Development</h4>
+              <p class="text-muted">
+                Developing clean, efficient, and scalable websites tailored to your needs.
+              </p>
+              <a href="" class="link">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-10" data-aos="fade-up">
+          <div class="service-card">
+            <div class="img">
+              <img
+                src="sulmedia\service-icon3.png"
+                class="w-25 img-fluid img"
+                alt=""
+              />
+            </div>
+            <div class="content mt-3">
+              <h4>Debugging</h4>
+              <p class="text-muted">
+                Identifying and resolving issues to ensure smooth and error-free performance.
+
+
+              </p>
+              <a href="" class="link">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- expertise section ends here -->
+
+    <!-- skill section starts -->
+    <section class="skill mt-5 py-5" id="about">
+      <div class="row justify-content-evenly">
+        <div class="col-10 col-md-5 skill-with-progress" data-aos="slide-right">
+          <div class="row justify-content-evenly">
+            <div class="col-10 col-md-6">
+              <div class="progress-card ms-3 ms-md-0">
+                <div class="circular-progress html-css">
+                  <span class="progress-value html-progress">0%</span>
+                </div>
+                <br />
+                <span class="text">HTML & CSS</span>
+              </div>
+            </div>
+            <div class="col-10 col-md-6 mt-4 mt-md-0">
+              <div class="progress-card ms-3 ms-md-0">
+                <div class="circular-progress javascript">
+                  <span class="progress-value javascript-progress">0%</span>
+                </div>
+                <br />
+                <span class="text">JavaScript</span>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-evenly mt-4">
+            <div class="col-10 col-md-6">
+              <div class="progress-card ms-3 ms-md-0">
+                <div class="circular-progress php">
+                  <span class="progress-value php-progress">0%</span>
+                </div>
+                <br />
+                <span class="text">C & C++</span>
+              </div>
+            </div>
+            <div class="col-10 col-md-6 mt-4 mt-md-0">
+              <div class="progress-card ms-3  ms-md-0">
+                <div class="circular-progress reactjs">
+                  <span class="progress-value reactjs-progress">0%</span>
+                </div>
+                <br>
+                <span class="text">ReactJS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-10 col-md-5 skill-detail" data-aos="slide-left">
+          <div class="heading mt-5 mt-md-3">
+            <small>My Skills</small>
+            <h3>Beautiful & Unique Digital Experiences</h3>
             <p class="text-muted">
-              Creating modern, intuitive, and responsive designs that elevate user experience.
+              I specialize in building responsive and visually appealing websites using HTML, CSS, Tailwind CSS, and JavaScript. My experience with React allows me to create dynamic and interactive user interfaces, following a component-based architecture and robust state management practices.
             </p>
-            <a href="" class="link">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-10" data-aos="fade-up">
-        <div class="service-card">
-          <div class="img">
-            <img src="sulmedia\service-icon2.png" class="w-25 img-fluid img" alt="" />
-          </div>
-          <div class="content mt-3">
-            <h4>Web Development</h4>
             <p class="text-muted">
-              Developing clean, efficient, and scalable websites tailored to your needs.
+              With a strong foundation in C/C++, I also enjoy solving complex computational problems and optimizing performance through efficient algorithms and well-structured data handling.
             </p>
-            <a href="" class="link">Read More</a>
+            <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
+              <!-- here download attribute is used for adding download functionality to button  -->
+              <a
+                href="/Sulabh resume 2025_removed.pdf"
+                download="SampleCV"
+                style="text-decoration: none;color: #fff;"
+                >Download CV</a
+              >
+            </button>
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-10" data-aos="fade-up">
-        <div class="service-card">
-          <div class="img">
-            <img src="sulmedia\service-icon3.png" class="w-25 img-fluid img" alt="" />
-          </div>
-          <div class="content mt-3">
-            <h4>Debugging</h4>
-            <p class="text-muted">
-              Identifying and resolving issues to ensure smooth and error-free performance.
+    </section>
+    <!-- skill section end here -->
 
-
-            </p>
-            <a href="" class="link">Read More</a>
-          </div>
-        </div>
+    <!-- portfolio section starts here -->
+    <section class="portfolio" id="portfolio">
+      <div class="heading text-center pt-5">
+        <small>Creative Work</small>
+        <h3>Check My Portfolio</h3>
       </div>
-    </div>
-  </section>
-  <!-- expertise section ends here -->
 
-  <!-- skill section starts -->
-  <section class="skill mt-5 py-5" id="about">
-    <div class="row justify-content-evenly">
-      <div class="col-10 col-md-5 skill-with-progress" data-aos="slide-right">
-        <div class="row justify-content-evenly">
-          <div class="col-10 col-md-6">
-            <div class="progress-card ms-3 ms-md-0">
-              <div class="circular-progress html-css">
-                <span class="progress-value html-progress">0%</span>
+      <div id="myBtnContainer" class="text-center mt-4">
+        <!-- here we will create custom attribute using data- for filtering -->
+        <button class="filter-item" data-filter="all">All</button>
+        <button class="filter-item" data-filter="game">Game</button>
+        <button class="filter-item" data-filter="webapp">Web App</button>
+        <button class="filter-item" data-filter="website">Website</button>
+        <button class="filter-item" data-filter="brand">Brand</button>
+      </div>
+      <div class="portfolio-body">
+        <div class="row justify-content-evenly px-4">
+          <div class="post col-md-4 game all col-10 mt-3 mt-md-0" data-aos="fade-up">
+            <div class="card">
+              <img src="/sulmedia/tic22.png"  style=" height: 250px;" class="card-img-top" alt="..." />
+              <div class="card-body text-center">
+                <h4 class="card-title">Tic Tac Toe Game</h4>
+                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
+                <span class="badge bg-secondary badge-pill">JavaScript</span>
+                <span class="badge bg-secondary badge-pill mb-2">Game</span
+                ><br />
+                <a href="#" class="link">Read More</a>
               </div>
-              <br />
-              <span class="text">HTML & CSS</span>
             </div>
           </div>
-          <div class="col-10 col-md-6 mt-4 mt-md-0">
-            <div class="progress-card ms-3 ms-md-0">
-              <div class="circular-progress javascript">
-                <span class="progress-value javascript-progress">0%</span>
+          <div class="post col-md-4 website all col-10 mt-3 mt-md-0" data-aos="fade-up">
+            <div class="card">
+              <img
+                src="sulmedia\jolly.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body text-center">
+                <h4 class="card-title"> Food web site</h4>
+                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
+                <span class="badge bg-secondary badge-pill">JavaScript</span>
+                <span class="badge bg-secondary badge-pill mb-2">Website</span
+                ><br />
+                <a href="#" class="read-more-btn link">Read More</a>
               </div>
-              <br />
-              <span class="text">JavaScript</span>
+            </div>
+          </div>
+          <div class="post col-md-4 webapp all col-10 mt-3 mt-md-0" data-aos="fade-up">
+            <div class="card">
+              <img src="https://www.sourcecodester.com/sites/default/files/images/rems/isa2.png"  style=" height: 250px;" class="card-img-top" alt="..." />
+              <div class="card-body text-center">
+                <h4 class="card-title">Image Search App</h4>
+                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
+                <span class="badge bg-secondary badge-pill">JavaScript</span>
+                <span class="badge bg-secondary badge-pill mb-2">WebApp</span
+                ><br />
+                <a href="#" class="read-more-btn link">Read More</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row justify-content-evenly mt-4">
-          <div class="col-10 col-md-6">
-            <div class="progress-card ms-3 ms-md-0">
-              <div class="circular-progress php">
-                <span class="progress-value php-progress">0%</span>
+        <div class="row justify-content-evenly mt-4 px-4">
+          <div class="post col-md-4 game all col-10 mt-3 mt-md-0" data-aos="fade-up">
+            <div class="card">
+              <img src="https://i0.wp.com/junilearning.com/wp-content/uploads/2023/12/java-tutorial-coding-rock-paper-scissors.png?fit=800%2C500&ssl=1" class="card-img-top" alt="..." />
+              <div class="card-body text-center">
+                <h4 class="card-title">Stone Paper Scissors Game</h4>
+                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
+                <span class="badge bg-secondary badge-pill">JavaScript</span>
+                <span class="badge bg-secondary badge-pill mb-2">App</span
+                ><br />
+                <a href="#" class="read-more-btn link">Read More</a>
               </div>
-              <br />
-              <span class="text">C & C++</span>
             </div>
           </div>
-          <div class="col-10 col-md-6 mt-4 mt-md-0">
-            <div class="progress-card ms-3  ms-md-0">
-              <div class="circular-progress reactjs">
-                <span class="progress-value reactjs-progress">0%</span>
+          <div class="post col-md-4 website all col-10 mt-3 mt-md-0" data-aos="fade-up">
+            <div class="card">
+              <img src="/sulmedia/10_00 AM.jpg"  style="height: 280px;" class="card-img-top" alt="..." />
+              <div class="card-body text-center">
+                <h4 class="card-title">Digital Watch</h4>
+                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
+                <span class="badge bg-secondary badge-pill">JavaScript</span>
+                <span class="badge bg-secondary badge-pill mb-2">Game</span
+                ><br />
+                <a href="#" class="read-more-btn link">Read More</a>
               </div>
-              <br>
-              <span class="text">ReactJS</span>
+            </div>
+          </div>
+          <div class="post col-md-4 all col-10 mt-3 mt-md-0" data-aos="fade-up">
+            <div class="card">
+              <img
+                src="https://i.ytimg.com/vi/imnJe9URt50/maxresdefault.jpg "  style="height: 280px;"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body text-center">
+                <h4 class="card-title">Rotating Image Gallery</h4>
+                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
+                <span class="badge bg-secondary badge-pill">JavaScript</span>
+                <span class="badge bg-secondary badge-pill mb-2">Web App</span
+                ><br />
+                <a href="#" class="read-more-btn link">Read More</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-10 col-md-5 skill-detail" data-aos="slide-left">
-        <div class="heading mt-5 mt-md-3">
-          <small>My Skills</small>
-          <h3>Beautiful & Unique Digital Experiences</h3>
-          <p class="text-muted">
-            I specialize in building responsive and visually appealing websites using HTML, CSS, Tailwind CSS, and
-            JavaScript. My experience with React allows me to create dynamic and interactive user interfaces, following
-            a component-based architecture and robust state management practices.
-          </p>
-          <p class="text-muted">
-            With a strong foundation in C/C++, I also enjoy solving complex computational problems and optimizing
-            performance through efficient algorithms and well-structured data handling.
-          </p>
-          <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
-            <!-- here download attribute is used for adding download functionality to button  -->
-            <a href="/Sulabh resume 2025_removed.pdf" download="SampleCV"
-              style="text-decoration: none;color: #fff;">Download CV</a>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- skill section end here -->
+    </section>
+    <!-- portfolio section ends here -->
 
-  <!-- portfolio section starts here -->
-  <section class="portfolio" id="portfolio">
-    <div class="heading text-center pt-5">
-      <small>Creative Work</small>
-      <h3>Check My Portfolio</h3>
-    </div>
-
-    <div id="myBtnContainer" class="text-center mt-4">
-      <!-- here we will create custom attribute using data- for filtering -->
-      <button class="filter-item" data-filter="all">All</button>
-      <button class="filter-item" data-filter="game">Game</button>
-      <button class="filter-item" data-filter="webapp">Web App</button>
-      <button class="filter-item" data-filter="website">Website</button>
-      <button class="filter-item" data-filter="brand">Brand</button>
-    </div>
-    <div class="portfolio-body">
-      <div class="row justify-content-evenly px-4">
-        <div class="post col-md-4 game all col-10 mt-3 mt-md-0" data-aos="fade-up">
-          <div class="card">
-            <img src="/sulmedia/tic22.png" style=" height: 250px;" class="card-img-top" alt="..." />
-            <div class="card-body text-center">
-              <h4 class="card-title">Tic Tac Toe Game</h4>
-              <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-              <span class="badge bg-secondary badge-pill">JavaScript</span>
-              <span class="badge bg-secondary badge-pill mb-2">Game</span><br />
-              <a href="#" class="link">Read More</a>
-            </div>
-          </div>
+    <!-- testimonial section starts  -->
+    <section class="testimonial mt-5 pt-5" id="testimonial">
+      <div class="row justify-content-evenly">
+        <div class="col-md-4 col-10" data-aos="slide-right">
+          <img src="sulmedia\tastimonials-img.png" class="img-fluid" alt="" />
         </div>
-        <div class="post col-md-4 website all col-10 mt-3 mt-md-0" data-aos="fade-up">
-          <div class="card">
-            <img src="sulmedia\jolly.png" class="card-img-top" alt="..." />
-            <div class="card-body text-center">
-              <h4 class="card-title"> Food web site</h4>
-              <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-              <span class="badge bg-secondary badge-pill">JavaScript</span>
-              <span class="badge bg-secondary badge-pill mb-2">Website</span><br />
-              <a href="#" class="read-more-btn link">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="post col-md-4 webapp all col-10 mt-3 mt-md-0" data-aos="fade-up">
-          <div class="card">
-            <img src="https://www.sourcecodester.com/sites/default/files/images/rems/isa2.png" style=" height: 250px;"
-              class="card-img-top" alt="..." />
-            <div class="card-body text-center">
-              <h4 class="card-title">Image Search App</h4>
-              <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-              <span class="badge bg-secondary badge-pill">JavaScript</span>
-              <span class="badge bg-secondary badge-pill mb-2">WebApp</span><br />
-              <a href="#" class="read-more-btn link">Read More</a>
+        <div class="col-md-6 col-10 mt-5" data-aos="slide-left">
+          <div class="heading">
+            <small>Testimonials</small>
+            <h3>Happy Clients Feedback</h3>
+            <!-- here we will use carousel element from bootstrap -->
+            <div
+              id="carouselExampleControls"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row justify-content-evenly">
+                    <div class="col-2 text-center">
+                      <i class="bi bi-quote"></i>
+                    </div>
+                    <div class="col-10">
+                      <p class="text-muted">
+                        Quisruam est, qui dolorem ipsum quia dolor sit amet,
+                        consecteaur aeci velit, sed quia non numquam eius modi
+                        tempora incidunt ut lao magnam aliquam quaerat ...
+                      </p>
+                      <h4>kunal sen</h4>
+                      <small class="fs-6 text-muted">CEO of Company</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row justify-content-evenly">
+                    <div class="col-2 text-center">
+                      <i class="bi bi-quote"></i>
+                    </div>
+                    <div class="col-10">
+                      <p class="text-muted">
+                        Quisruam est, qui dolorem ipsum quia dolor sit amet,
+                        consecteaur aeci velit, sed quia non numquam eius modi
+                        tempora incidunt ut lao magnam aliquam quaerat ...
+                      </p>
+                      <h4>Nikhil share</h4>
+                      <small class="fs-6 text-muted">CEO of Company</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row justify-content-evenly">
+                    <div class="col-2 text-center">
+                      <i class="bi bi-quote"></i>
+                    </div>
+                    <div class="col-10">
+                      <p class="text-muted">
+                        Quisruam est, qui dolorem ipsum quia dolor sit amet,
+                        consecteaur aeci velit, sed quia non numquam eius modi
+                        tempora incidunt ut lao magnam aliquam quaerat ...
+                      </p>
+                      <h4>saurabh</h4>
+                      <small class="fs-6 text-muted">CEO of Company</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="nextprev-btn rounded-pill prev-btn"
+                type="button"
+                data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev"
+              >
+                <i class="bi bi-arrow-left-circle-fill prev"></i>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="nextprev-btn rounded-pill next-btn"
+                type="button"
+                data-bs-target="#carouselExampleControls"
+                data-bs-slide="next"
+              >
+                <i class="bi bi-arrow-right-circle-fill next"></i>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <div class="row justify-content-evenly mt-4 px-4">
-        <div class="post col-md-4 game all col-10 mt-3 mt-md-0" data-aos="fade-up">
+    </section>
+    <!-- testimonial ends here -->
+
+    <!-- blog section starts -->
+    <section class="blog mt-5 pb-5" id="blog">
+      <div class="heading text-center pt-5">
+        <small>Latest News</small>
+        <h3>Blog & Articles</h3>
+      </div>
+      <div class="row justify-content-evenly px-4 mt-4" data-aos="fade-up">
+        <div class="blogpost col-md-4 col-10 mt-2 mt-md-0 game all dv">
+          <div class="card ">
+            <img
+              src="/sulmedia/10_00 AM.jpg"
+              class="card-img-top rounded-4"  style="height:250px ;"
+              alt="..."
+            />
+            <div class="card-body px-4">
+              <small>By Sulabh hathi</small
+              ><span class="ms-3"> september 08,2024</span>
+              <h4 class="card-title">
+                <a href="">🕒 How I Built My First Digital Watch</a>
+              </h4>
+              <p class="text-muted">
+                Building a digital clock was a small project for me, but it taught me a lot – especially how to work with real-time DOM updates using JavaScript.
+              </p>
+              <a href="#" class="read-more-btn link" data-bs-toggle="modal" data-bs-target="#exampleModal1">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="blogpost col-md-4 col-10 mt-5 mt-md-0 website all dv">
           <div class="card">
             <img
-              src="https://i0.wp.com/junilearning.com/wp-content/uploads/2023/12/java-tutorial-coding-rock-paper-scissors.png?fit=800%2C500&ssl=1"
-              class="card-img-top" alt="..." />
-            <div class="card-body text-center">
-              <h4 class="card-title">Stone Paper Scissors Game</h4>
-              <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-              <span class="badge bg-secondary badge-pill">JavaScript</span>
-              <span class="badge bg-secondary badge-pill mb-2">App</span><br />
-              <a href="#" class="read-more-btn link">Read More</a>
+              src="https://www.sourcecodester.com/sites/default/files/images/rems/isa2.png" style="height:250px ;"
+
+
+
+              
+              class="card-img-top rounded-4"
+              alt="..."
+            />
+            <div class="card-body px-4">
+              <small>By sulabh hathi</small
+              ><span class="ms-3"> January 08,2024</span>
+              <h4 class="card-title">
+                <a href="">🖼 How I Built My Image Searching App</a>
+              </h4>
+              <p class="text-muted">
+                I built a responsive image searching app using HTML, CSS, and JavaScript that lets users search and view images fetched from an external API, helping me improve my frontend and API handling skills.
+              </p>
+              <a href="#" class="read-more-btn link" data-bs-toggle="modal" data-bs-target="#exampleModal2">Read More</a>
             </div>
           </div>
         </div>
-        <div class="post col-md-4 website all col-10 mt-3 mt-md-0" data-aos="fade-up">
+        <div class="blogpost col-md-4 col-10 mt-5 mt-md-0 webapp all dv">
           <div class="card">
-            <img src="/sulmedia/10_00 AM.jpg" style="height: 280px;" class="card-img-top" alt="..." />
-            <div class="card-body text-center">
-              <h4 class="card-title">Digital Watch</h4>
-              <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-              <span class="badge bg-secondary badge-pill">JavaScript</span>
-              <span class="badge bg-secondary badge-pill mb-2">Game</span><br />
-              <a href="#" class="read-more-btn link">Read More</a>
+            <img
+              src="/sulmedia/jolly.png"
+              class="card-img-top rounded-4"  style="height:250px ;"
+              alt="..."
+            />
+            <div class="card-body px-4">
+              <small>By sulabh hathi</small
+              ><span class="ms-3">April 12,2024</span>
+              <h4 class="card-title">
+                <a href="">🍽 How I Created a Food Website – My UI/UX Practice Project</a>
+              </h4>
+              <p class="text-muted">
+                This project involved building a clean, responsive Food Website to showcase dishes, enable easy navigation, and include a call-to-action. It helped me improve my frontend and UI/UX skills
+              </p>
+              <a href="#" class="read-more-btn link" data-bs-toggle="modal" data-bs-target="#exampleModal3">Read More</a>
             </div>
           </div>
         </div>
-        <div class="post col-md-4 all col-10 mt-3 mt-md-0" data-aos="fade-up">
-          <div class="card">
-            <img src="https://i.ytimg.com/vi/imnJe9URt50/maxresdefault.jpg " style="height: 280px;" class="card-img-top"
-              alt="..." />
-            <div class="card-body text-center">
-              <h4 class="card-title">Rotating Image Gallery</h4>
-              <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-              <span class="badge bg-secondary badge-pill">JavaScript</span>
-              <span class="badge bg-secondary badge-pill mb-2">Web App</span><br />
-              <a href="#" class="read-more-btn link">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- portfolio section ends here -->
+        <!-- here we will make modals if Read more link is clicked the modal will popup -->
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              
+                <button type="button" class="btn-c rounded-pill" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i></button>
+              
+              <div class="modal-body px-4">
+                <div class="img">
+                  <img src="images/2048game.png" class="img-fluid" alt="">
+                </div>
+                <div class="content mt-3">
+                  <small>By Sulabh Hathai</small
+                    ><span class="text-muted ms-2">september 8,2024</span>
+                  <h4 class="card-title mt-3">🕒 How I Built My First Digital Watch</h4>
+                  <div class="social-links mt-4">
+                    <a href="https://in.linkedin.com/in/sulabh-hathi-933a512b5" target="blank">
+                      <button href="" class="rounded-pill dribble">
+                       <i class="fa-brands fa-linkedin fa-xl" style="color: #0077b5;"></i>
+                      </button>
+                    </a>
+                    <a href="https://wa.me/916263110540" target="_blank">
+                      <button href="" class="rounded-pill whatsapp">
+                        <i class="bi bi-whatsapp"></i>
+                      </button>
+                    </a>
 
-  <!-- testimonial section starts  -->
-  <section class="testimonial mt-5 pt-5" id="testimonial">
-    <div class="row justify-content-evenly">
-      <div class="col-md-4 col-10" data-aos="slide-right">
-        <img src="sulmedia\tastimonials-img.png" class="img-fluid" alt="" />
-      </div>
-      <div class="col-md-6 col-10 mt-5" data-aos="slide-left">
-        <div class="heading">
-          <small>Testimonials</small>
-          <h3>Happy Clients Feedback</h3>
-          <!-- here we will use carousel element from bootstrap -->
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="row justify-content-evenly">
-                  <div class="col-2 text-center">
-                    <i class="bi bi-quote"></i>
+                    <a href="">
+                      <button href="" class="rounded-pill behance">
+                        <i class="fa-brands fa-x-twitter"></i>
+                      </button>
+                    </a>
                   </div>
-                  <div class="col-10">
-                    <p class="text-muted">
-                      Quisruam est, qui dolorem ipsum quia dolor sit amet,
-                      consecteaur aeci velit, sed quia non numquam eius modi
-                      tempora incidunt ut lao magnam aliquam quaerat ...
+                  <p class="text-muted mt-3">
+                    <section>
+                      <h2 style="font-size: 1.2rem;"></h2>
+                    
+                      <h3 style="font-size: 1.1rem;">🔧 Technologies Used:</h3>
+                      <ul style="font-size: 0.9rem;">
+                        <li>HTML for structure</li>
+                        <li>CSS for styling (Responsive design)</li>
+                        <li>JavaScript for real-time functionality</li>
+                      </ul>
+                    
+                      <h3 style="font-size: 1.1rem;">🧠 The Idea:</h3>
+                      <p style="font-size: 0.9rem;">I wanted to build a simple digital watch that would show live time (hours, minutes, seconds) and auto-update every second.</p>
+                    
+                      <h3 style="font-size: 1.1rem;">💡 What I Learned:</h3>
+                      <ul style="font-size: 0.9rem;">
+                        <li>How the JavaScript <code>setInterval()</code> function works</li>
+                        <li>How to fetch the current time using the <code>new Date()</code> object</li>
+                        <li>How to display time in a 2-digit format (e.g., 09 instead of 9)</li>
+                        <li>How to design a clean, minimal UI with CSS</li>
+                      </ul>
+                    </section>
+                    
+                    
                     </p>
-                    <h4>kunal sen</h4>
-                    <small class="fs-6 text-muted">CEO of Company</small>
-                  </div>
                 </div>
               </div>
-              <div class="carousel-item">
-                <div class="row justify-content-evenly">
-                  <div class="col-2 text-center">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <div class="col-10">
-                    <p class="text-muted">
-                      Quisruam est, qui dolorem ipsum quia dolor sit amet,
-                      consecteaur aeci velit, sed quia non numquam eius modi
-                      tempora incidunt ut lao magnam aliquam quaerat ...
-                    </p>
-                    <h4>Nikhil share</h4>
-                    <small class="fs-6 text-muted">CEO of Company</small>
-                  </div>
-                </div>
+              <div class="heading px-2">
+                <h3 class="fs-3 ms-3">Leave A Comment</h3>
               </div>
-              <div class="carousel-item">
-                <div class="row justify-content-evenly">
-                  <div class="col-2 text-center">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <div class="col-10">
-                    <p class="text-muted">
-                      Quisruam est, qui dolorem ipsum quia dolor sit amet,
-                      consecteaur aeci velit, sed quia non numquam eius modi
-                      tempora incidunt ut lao magnam aliquam quaerat ...
-                    </p>
-                    <h4>saurabh</h4>
-                    <small class="fs-6 text-muted">CEO of Company</small>
-                  </div>
+              <div class="contact-form ms-3 mt-3 pb-4 px-2">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Name"
+                  />
                 </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="E-mail"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Mobile No."
+                  />
+                </div>
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    placeholder="Message"
+                    rows="5"
+                  ></textarea>
+                </div>
+                <button class="c-btn h-btn mt-3 py-2 px-4 rounded-pill">
+                  Submit
+                </button>
               </div>
+              
             </div>
-            <button class="nextprev-btn rounded-pill prev-btn" type="button" data-bs-target="#carouselExampleControls"
-              data-bs-slide="prev">
-              <i class="bi bi-arrow-left-circle-fill prev"></i>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="nextprev-btn rounded-pill next-btn" type="button" data-bs-target="#carouselExampleControls"
-              data-bs-slide="next">
-              <i class="bi bi-arrow-right-circle-fill next"></i>
-              <span class="visually-hidden">Next</span>
-            </button>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- testimonial ends here -->
-
-  <!-- blog section starts -->
-  <section class="blog mt-5 pb-5" id="blog">
-    <div class="heading text-center pt-5">
-      <small>Latest News</small>
-      <h3>Blog & Articles</h3>
-    </div>
-    <div class="row justify-content-evenly px-4 mt-4" data-aos="fade-up">
-      <div class="blogpost col-md-4 col-10 mt-2 mt-md-0 game all dv">
-        <div class="card ">
-          <img
-            src="/sulmedia/10_00 AM.jpg"
-            class="card-img-top rounded-4" style="height:250px ;" alt="..." />
-          <div class="card-body px-4">
-            <small>By Sulabh hathi</small><span class="ms-3"> september 08,2024</span>
-            <h4 class="card-title">
-              <a href="">🕒 How I Built My First Digital Watch</a>
-            </h4>
-            <p class="text-muted">
-              Building a digital clock was a small project for me, but it taught me a lot – especially how to work with
-              real-time DOM updates using JavaScript.
-            </p>
-            <a href="#" class="read-more-btn link" data-bs-toggle="modal" data-bs-target="#exampleModal1">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="blogpost col-md-4 col-10 mt-5 mt-md-0 website all dv">
-        <div class="card">
-          <img src="https://www.sourcecodester.com/sites/default/files/images/rems/isa2.png" style="height:250px ;"
-            class="card-img-top rounded-4" alt="..." />
-          <div class="card-body px-4">
-            <small>By sulabh hathi</small><span class="ms-3"> January 08,2024</span>
-            <h4 class="card-title">
-              <a href=""> 🖼 How I Built My Image Searching App</a>
-            </h4>
-            <p class="text-muted">
-              I built a responsive image searching app using HTML, CSS, and JavaScript that lets users search and view
-              images fetched from an external API, helping me improve my frontend and API handling skills.
-            </p>
-            <a href="#" class="read-more-btn link" data-bs-toggle="modal" data-bs-target="#exampleModal2">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="blogpost col-md-4 col-10 mt-5 mt-md-0 webapp all dv">
-        <div class="card">
-          <img src="/sulmedia/jolly.png"
-            class="card-img-top rounded-4" style="height:250px ;" alt="..." />
-          <div class="card-body px-4">
-            <small>By sulabh hathi</small><span class="ms-3">April 12,2024</span>
-            <h4 class="card-title">
-              <a href="">🍽 How I Created a Food Website – My UI/UX Practice Project</a>
-            </h4>
-            <p class="text-muted">
-              This project involved building a clean, responsive Food Website to showcase dishes, enable easy
-              navigation, and include a call-to-action. It helped me improve my frontend and UI/UX skills
-            </p>
-            <a href="#" class="read-more-btn link" data-bs-toggle="modal" data-bs-target="#exampleModal3">Read More</a>
-          </div>
-        </div>
-      </div>
-      <!-- here we will make modals if Read more link is clicked the modal will popup -->
-      <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-
-            <button type="button" class="btn-c rounded-pill" data-bs-dismiss="modal"><i
-                class="bi bi-x-circle-fill"></i></button>
-
-            <div class="modal-body px-4">
-              <div class="img">
-                <img src="images/2048game.png" class="img-fluid" alt="">
-              </div>
-              <div class="content mt-3">
-                <small>By Sulabh Hathai</small><span class="text-muted ms-2">september 8,2024</span>
-                <h4 class="card-title mt-3">🕒 How I Built My First Digital Watch</h4>
-                <div class="social-links mt-4">
-                  <a href="https://in.linkedin.com/in/sulabh-hathi-933a512b5" target="blank">
-                    <button href="" class="rounded-pill dribble">
-                      <i class="fa-brands fa-linkedin fa-xl" style="color: #0077b5;"></i>
-                    </button>
-                  </a>
-                  <a href="https://wa.me/916263110540" target="_blank">
-                    <button href="" class="rounded-pill whatsapp">
-                      <i class="bi bi-whatsapp"></i>
-                    </button>
-                  </a>
-
-                  <a href="">
-                    <button href="" class="rounded-pill behance">
-                      <i class="fa-brands fa-x-twitter"></i>
-                    </button>
-                  </a>
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              
+                <button type="button" class="btn-c rounded-pill" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i></button>
+              
+              <div class="modal-body px-4">
+                <div class="img">
+                  <img src="images/currency-converter.png" class="img-fluid" alt="">
                 </div>
-                <p class="text-muted mt-3">
-                <section>
-                  <h2 style="font-size: 1.2rem;"></h2>
+                <div class="content mt-3">
+                  <small>By  Sulabh Hathai</small
+                    ><span class="text-muted ms-2 ms-md-0"> january 08,2024</span>
+                  <h4 class="card-title mt-3">🖼 How I Built My Image Searching App</h4>
+                  <div class="social-links mt-4">
 
-                  <h3 style="font-size: 1.1rem;">🔧 Technologies Used:</h3>
-                  <ul style="font-size: 0.9rem;">
-                    <li>HTML for structure</li>
-                    <li>CSS for styling (Responsive design)</li>
-                    <li>JavaScript for real-time functionality</li>
-                  </ul>
+                    <a href="https://in.linkedin.com/in/sulabh-hathi-933a512b5" target="blank">
+                      <button href="" class="rounded-pill dribble">
 
-                  <h3 style="font-size: 1.1rem;">🧠 The Idea:</h3>
-                  <p style="font-size: 0.9rem;">I wanted to build a simple digital watch that would show live time
-                    (hours, minutes, seconds) and auto-update every second.</p>
-
-                  <h3 style="font-size: 1.1rem;">💡 What I Learned:</h3>
-                  <ul style="font-size: 0.9rem;">
-                    <li>How the JavaScript <code>setInterval()</code> function works</li>
-                    <li>How to fetch the current time using the <code>new Date()</code> object</li>
-                    <li>How to display time in a 2-digit format (e.g., 09 instead of 9)</li>
-                    <li>How to design a clean, minimal UI with CSS</li>
-                  </ul>
-                </section>
+                        <i class="fa-brands fa-linkedin fa-xl" style="color: #0077b5;"></i>
 
 
-                </p>
-              </div>
-            </div>
-            <div class="heading px-2">
-              <h3 class="fs-3 ms-3">Leave A Comment</h3>
-            </div>
-            <div class="contact-form ms-3 mt-3 pb-4 px-2">
-              <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name" />
-              </div>
-              <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="E-mail" />
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Mobile No." />
-              </div>
-              <div class="mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message"
-                  rows="5"></textarea>
-              </div>
-              <button class="c-btn h-btn mt-3 py-2 px-4 rounded-pill">
-                Submit
-              </button>
-            </div>
+                      </button> </a>
 
-          </div>
-        </div>
-      </div>
-      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
+                      <a href="https://wa.me/916263110540" target="_blank">
+                      <button href="" class="rounded-pill whatsapp">
+                        <i class="bi bi-whatsapp"></i>
+                      </button>
+                    </a>
 
-            <button type="button" class="btn-c rounded-pill" data-bs-dismiss="modal"><i
-                class="bi bi-x-circle-fill"></i></button>
-
-            <div class="modal-body px-4">
-              <div class="img">
-                <img src="images/currency-converter.png" class="img-fluid" alt="">
-              </div>
-              <div class="content mt-3">
-                <small>By Sulabh Hathai</small><span class="text-muted ms-2 ms-md-0"> january 08,2024</span>
-                <h4 class="card-title mt-3">🖼 How I Built My Image Searching App</h4>
-                <div class="social-links mt-4">
-
-                  <a href="https://in.linkedin.com/in/sulabh-hathi-933a512b5" target="blank">
-                    <button href="" class="rounded-pill dribble">
-
-                      <i class="fa-brands fa-linkedin fa-xl" style="color: #0077b5;"></i>
-
-
-                    </button> </a>
-
-                  <a href="https://wa.me/916263110540" target="_blank">
-                    <button href="" class="rounded-pill whatsapp">
-                      <i class="bi bi-whatsapp"></i>
-                    </button>
-                  </a>
-
-                  <a href="">
-                    <button href="" class="rounded-pill behance">
-                      <i class="fa-brands fa-x-twitter"></i>
-                    </button>
-                  </a>
-                </div>
-                <p class="text-muted mt-3">
-                <section style="font-size: 0.9rem;">
-                  <!-- <h2 style="font-size: 1.2rem;">🖼 How I Built My Image Searching App – A Hands-On Project</h2> -->
-
-                  <p>Building an <strong>Image Searching App</strong> was a fun and practical project that helped me
-                    deepen my skills in <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>.
-                    The goal was to create a simple, responsive web application that allows users to search for images
-                    online, fetch them through an API, and display the results dynamically.</p>
-
-                  <h3 style="font-size: 1rem;">🔧 Technologies Used:</h3>
-                  <ul>
-                    <li><strong>HTML</strong> for structuring the webpage and input elements</li>
-                    <li><strong>CSS</strong> for styling the app and making it responsive</li>
-                    <li><strong>JavaScript</strong> for handling user input, fetching data from an API, and dynamically
-                      displaying the images</li>
-                    <li><strong>Unsplash API</strong> for accessing high-quality, royalty-free images</li>
-                  </ul>
-
-                  <h3 style="font-size: 1rem;">🧠 The Idea:</h3>
-                  <p>I wanted to build a simple image search engine where users can type keywords (like "nature",
-                    "cats", etc.) and view a gallery of images related to their search. The app makes an API request to
-                    the <strong>Unsplash API</strong>, retrieves a set of images, and displays them on the screen.</p>
-
-                  <h3 style="font-size: 1rem;">💡 What I Learned:</h3>
-                  <ul>
-                    <li>How to make <strong>API requests</strong> using <strong>JavaScript</strong> and handle the
-                      responses with <strong>Fetch</strong>.</li>
-                    <li>How to create a <strong>dynamic image gallery</strong> that updates based on user input.</li>
-                    <li>How to manage the <strong>UI</strong> with simple <strong>HTML/CSS</strong>, ensuring that it is
-                      both functional and visually appealing on all devices.</li>
-                    <li>How to make the app <strong>responsive</strong> so that the images and UI scale properly on
-                      mobile devices.</li>
-                  </ul>
-
-                  <h3 style="font-size: 1rem;">🔍 What’s Next:</h3>
-                  <p>This project was a great starting point, and I’m now planning to expand it by adding features like:
+                    <a href="">
+                      <button href="" class="rounded-pill behance">
+                        <i class="fa-brands fa-x-twitter"></i>
+                      </button>
+                    </a>
+                  </div>
+                  <p class="text-muted mt-3"><section style="font-size: 0.9rem;">
+                    <!-- <h2 style="font-size: 1.2rem;">🖼 How I Built My Image Searching App – A Hands-On Project</h2> -->
+                  
+                    <p>Building an <strong>Image Searching App</strong> was a fun and practical project that helped me deepen my skills in <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>. The goal was to create a simple, responsive web application that allows users to search for images online, fetch them through an API, and display the results dynamically.</p>
+                  
+                    <h3 style="font-size: 1rem;">🔧 Technologies Used:</h3>
+                    <ul>
+                      <li><strong>HTML</strong> for structuring the webpage and input elements</li>
+                      <li><strong>CSS</strong> for styling the app and making it responsive</li>
+                      <li><strong>JavaScript</strong> for handling user input, fetching data from an API, and dynamically displaying the images</li>
+                      <li><strong>Unsplash API</strong> for accessing high-quality, royalty-free images</li>
+                    </ul>
+                  
+                    <h3 style="font-size: 1rem;">🧠 The Idea:</h3>
+                    <p>I wanted to build a simple image search engine where users can type keywords (like "nature", "cats", etc.) and view a gallery of images related to their search. The app makes an API request to the <strong>Unsplash API</strong>, retrieves a set of images, and displays them on the screen.</p>
+                  
+                    <h3 style="font-size: 1rem;">💡 What I Learned:</h3>
+                    <ul>
+                      <li>How to make <strong>API requests</strong> using <strong>JavaScript</strong> and handle the responses with <strong>Fetch</strong>.</li>
+                      <li>How to create a <strong>dynamic image gallery</strong> that updates based on user input.</li>
+                      <li>How to manage the <strong>UI</strong> with simple <strong>HTML/CSS</strong>, ensuring that it is both functional and visually appealing on all devices.</li>
+                      <li>How to make the app <strong>responsive</strong> so that the images and UI scale properly on mobile devices.</li>
+                    </ul>
+                  
+                    <h3 style="font-size: 1rem;">🔍 What's Next:</h3>
+                    <p>This project was a great starting point, and I'm now planning to expand it by adding features like:</p>
+                    <ul>
+                      <li><strong>Infinite Scroll</strong>: Automatically load more images as the user scrolls down.</li>
+                      <li><strong>Error Handling</strong>: Show a friendly message if no results are found or the API request fails.</li>
+                      <li><strong>Filters</strong>: Allow users to filter images based on categories like "Nature", "Animals", etc.</li>
+                    </ul>
+                  </section>
                   </p>
-                  <ul>
-                    <li><strong>Infinite Scroll</strong>: Automatically load more images as the user scrolls down.</li>
-                    <li><strong>Error Handling</strong>: Show a friendly message if no results are found or the API
-                      request fails.</li>
-                    <li><strong>Filters</strong>: Allow users to filter images based on categories like "Nature",
-                      "Animals", etc.</li>
-                  </ul>
-                </section>
-                </p>
-              </div>
-            </div>
-            <div class="heading px-2">
-              <h3 class="fs-3 ms-3">Leave A Comment</h3>
-            </div>
-            <div class="contact-form ms-3 mt-3 pb-4 px-2">
-              <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name" />
-              </div>
-              <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="E-mail" />
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Mobile No." />
-              </div>
-              <div class="mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message"
-                  rows="5"></textarea>
-              </div>
-              <button class="c-btn h-btn mt-3 py-2 px-4 rounded-pill">
-                Submit
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-
-            <button type="button" class="btn-c rounded-pill" data-bs-dismiss="modal"><i
-                class="bi bi-x-circle-fill"></i></button>
-
-            <div class="modal-body px-4">
-              <div class="img">
-                <img src="images/dictionary.png" class="img-fluid" alt="">
-              </div>
-              <div class="content mt-3">
-                <small>By Sulabh Hathai</small><span class="text-muted ms-2 ms-md-0"> April 12,2024</span>
-                <h4 class="card-title mt-3">🍽 How I Created a Food Website – My UI/UX Practice Project</h4>
-                <div class="social-links mt-4">
-
-                  <a href="https://in.linkedin.com/in/sulabh-hathi-933a512b5" target="blank">
-                    <button href="" class="rounded-pill dribble">
-                      <i class="fa-brands fa-linkedin fa-xl" style="color: #0077b5;"></i>
-                    </button>
-                  </a>
-                  <a href="https://wa.me/916263110540" target="_blank">
-                    <button href="" class="rounded-pill whatsapp">
-                      <i class="bi bi-whatsapp"></i>
-                    </button>
-
-                  </a>
-
-                  <a href="">
-                    <button href="" class="rounded-pill behance">
-                      <i class="fa-brands fa-x-twitter"></i>
-                    </button>
-                  </a>
                 </div>
-                <p class="text-muted mt-3">
-                <section style="font-size: 0.9rem;">
-                  <!-- <h2 style="font-size: 1.2rem;">🍽 How I Created a Food Website – My UI/UX Practice Project</h2> -->
-
-                  <p> This project was focused on designing and developing a clean, responsive <strong>Food
-                      Website</strong> that showcases different dishes, offers a simple navigation experience, and
-                    includes a call-to-action for ordering or exploring the menu. It helped me polish my frontend skills
-                    and practice creating user-friendly layouts.</p>
-
-                  <h3 style="font-size: 1rem;">🔧 Technologies Used:</h3>
-                  <ul>
-                    <li><strong>HTML</strong> – To build the basic structure of the website</li>
-                    <li><strong>CSS</strong> – For styling the layout, fonts, colors, and animations</li>
-                    <li><strong>JavaScript</strong> – For adding interactivity like toggle menus and sliders</li>
-                  </ul>
-
-                  <h3 style="font-size: 1rem;">🧠 The Idea:</h3>
-                  <p>I wanted to build a website that could be used by a food delivery service or restaurant. It
-                    includes a home section, featured food items, a menu section, customer reviews, and a contact form.
-                    The design is clean and focused on user engagement.</p>
-
-                  <h3 style="font-size: 1rem;">💡 What I Learned:</h3>
-                  <ul>
-                    <li>How to design a clean, appealing layout using HTML and CSS</li>
-                    <li>Responsive design principles for mobile and tablet views</li>
-                    <li>Using <strong>media queries</strong> to adapt the layout for different screen sizes</li>
-                    <li>How to implement a mobile-friendly navigation menu using JavaScript</li>
-                  </ul>
-
-                  <h3 style="font-size: 1rem;">🌟 Features:</h3>
-                  <ul>
-                    <li>Responsive navigation bar</li>
-                    <li>Beautiful hero section with a call-to-action</li>
-                    <li>Food gallery/menu with hover effects</li>
-                    <li>Customer reviews/testimonials section</li>
-                    <li>Contact form and footer with social links</li>
-                  </ul>
-
-                  <h3 style="font-size: 1rem;">🚀 What’s Next:</h3>
-                  <p>In the future, I’d like to connect this website to a real backend for managing orders and user
-                    logins. I’m also planning to add animations and transitions using CSS or animation libraries for
-                    smoother UI effects.</p>
-                </section>
-                </p>
               </div>
+              <div class="heading px-2">
+                <h3 class="fs-3 ms-3">Leave A Comment</h3>
+              </div>
+              <div class="contact-form ms-3 mt-3 pb-4 px-2">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="E-mail"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Mobile No."
+                  />
+                </div>
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    placeholder="Message"
+                    rows="5"
+                  ></textarea>
+                </div>
+                <button class="c-btn h-btn mt-3 py-2 px-4 rounded-pill">
+                  Submit
+                </button>
+              </div>
+              
             </div>
-            <div class="heading px-2">
-              <h3 class="fs-3 ms-3">Leave A Comment</h3>
-            </div>
-            <div class="contact-form ms-3 mt-3 pb-4 px-2">
-              <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name" />
-              </div>
-              <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="E-mail" />
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Mobile No." />
-              </div>
-              <div class="mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message"
-                  rows="5"></textarea>
-              </div>
-              <button class="c-btn h-btn mt-3 py-2 px-4 rounded-pill">
-                Submit
-              </button>
-            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              
+                <button type="button" class="btn-c rounded-pill" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i></button>
+              
+              <div class="modal-body px-4">
+                <div class="img">
+                  <img src="images/dictionary.png" class="img-fluid" alt="">
+                </div>
+                <div class="content mt-3">
+                  <small>By  Sulabh Hathai</small
+                    ><span class="text-muted ms-2 ms-md-0"> April 12,2024</span>
+                  <h4 class="card-title mt-3">🍽 How I Created a Food Website – My UI/UX Practice Project</h4>
+                  <div class="social-links mt-4">
 
+                    <a href="https://in.linkedin.com/in/sulabh-hathi-933a512b5" target="blank">
+                      <button href="" class="rounded-pill dribble">
+                        <i class="fa-brands fa-linkedin fa-xl" style="color: #0077b5;"></i>
+                      </button>
+                    </a>
+                    <a href="https://wa.me/916263110540" target="_blank">
+                      <button href="" class="rounded-pill whatsapp">
+                        <i class="bi bi-whatsapp"></i>
+                      </button>
+
+                    </a>
+
+                    <a href="">
+                      <button href="" class="rounded-pill behance">
+                        <i class="fa-brands fa-x-twitter"></i>
+                      </button>
+                    </a>
+                  </div>
+                  <p class="text-muted mt-3"><section style="font-size: 0.9rem;">
+                    <!-- <h2 style="font-size: 1.2rem;">🍽 How I Created a Food Website – My UI/UX Practice Project</h2> -->
+                  
+                    <p>  This project was focused on designing and developing a clean, responsive <strong>Food Website</strong> that showcases different dishes, offers a simple navigation experience, and includes a call-to-action for ordering or exploring the menu. It helped me polish my frontend skills and practice creating user-friendly layouts.</p>
+                  
+                    <h3 style="font-size: 1rem;">🔧 Technologies Used:</h3>
+                    <ul>
+                      <li><strong>HTML</strong> – To build the basic structure of the website</li>
+                      <li><strong>CSS</strong> – For styling the layout, fonts, colors, and animations</li>
+                      <li><strong>JavaScript</strong> – For adding interactivity like toggle menus and sliders</li>
+                    </ul>
+                  
+                    <h3 style="font-size: 1rem;">🧠 The Idea:</h3>
+                    <p>I wanted to build a website that could be used by a food delivery service or restaurant. It includes a home section, featured food items, a menu section, customer reviews, and a contact form. The design is clean and focused on user engagement.</p>
+                  
+                    <h3 style="font-size: 1rem;">💡 What I Learned:</h3>
+                    <ul>
+                      <li>How to design a clean, appealing layout using HTML and CSS</li>
+                      <li>Responsive design principles for mobile and tablet views</li>
+                      <li>Using <strong>media queries</strong> to adapt the layout for different screen sizes</li>
+                      <li>How to implement a mobile-friendly navigation menu using JavaScript</li>
+                    </ul>
+                  
+                    <h3 style="font-size: 1rem;">🌟 Features:</h3>
+                    <ul>
+                      <li>Responsive navigation bar</li>
+                      <li>Beautiful hero section with a call-to-action</li>
+                      <li>Food gallery/menu with hover effects</li>
+                      <li>Customer reviews/testimonials section</li>
+                      <li>Contact form and footer with social links</li>
+                    </ul>
+                  
+                    <h3 style="font-size: 1rem;">🚀 What's Next:</h3>
+                    <p>In the future, I'd like to connect this website to a real backend for managing orders and user logins. I'm also planning to add animations and transitions using CSS or animation libraries for smoother UI effects.</p>
+                  </section>
+                  </p>
+                </div>
+              </div>
+              <div class="heading px-2">
+                <h3 class="fs-3 ms-3">Leave A Comment</h3>
+              </div>
+              <div class="contact-form ms-3 mt-3 pb-4 px-2">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="E-mail"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Mobile No."
+                  />
+                </div>
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    placeholder="Message"
+                    rows="5"
+                  ></textarea>
+                </div>
+                <button class="c-btn h-btn mt-3 py-2 px-4 rounded-pill">
+                  Submit
+                </button>
+              </div>
+              
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- blog section ends here -->
+    </section>
+    <!-- blog section ends here -->
 
-  <!-- contact section starts -->
-  <section class="contact py-5" id="contact">
-    <div class="heading text-center">
-      <small>Get in Touch</small>
-      <h3>Any Questions? Feel Free to Contact</h3>
-    </div>
-    <div class="row justify-content-evenly mt-5">
-      <div class="col-md-5 col-10 contact-details" data-aos="slide-right">
-        <div class="row justify-content-evenly">
-          <div class="col-1">
-            <i class="bi bi-geo-alt-fill"></i>
-          </div>
-          <div class="col-11">
-            <p> Balaghat, Madhya Pradesh India </p>
-          </div>
-        </div>
-        <div class="row justify-content-evenly">
-          <div class="col-1">
-            <i class="bi bi-telephone-fill"></i>
-          </div>
-          <div class="col-11">
-            <p>+91 62631-10540</p>
-          </div>
-        </div>
-        <div class="row justify-content-evenly">
-          <div class="col-1">
-            <i class="bi bi-send-fill"></i>
-          </div>
-          <div class="col-11">
-            <p>kumarsulabh2003@gmail.com</p>
-          </div>
-        </div>
-        <div class="row justify-content-evenly">
-          <div class="col-1">
-            <i class="bi bi-globe-americas"></i>
-          </div>
-          <div class="col-11">
-            <p>sulabh.com</p>
-          </div>
-        </div>
+    <!-- contact section starts -->
+    <section class="contact py-5" id="contact">
+      <div class="heading text-center">
+        <small>Get in Touch</small>
+        <h3>Any Questions? Feel Free to Contact</h3>
       </div>
-      <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
-
-
-
-
-
-        <div class="contact-form">
-          <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="6942c2b0-fb2e-4812-b3c4-1be1259080e7">
-
-            <div class="mb-3">
-              <input type="text" class="form-control" name="name" placeholder="Name" required />
+      <div class="row justify-content-evenly mt-5">
+        <div class="col-md-5 col-10 contact-details" data-aos="slide-right">
+          <div class="row justify-content-evenly">
+            <div class="col-1">
+              <i class="bi bi-geo-alt-fill"></i>
             </div>
-
-            <div class="mb-3">
-              <input type="email" class="form-control" name="email" placeholder="E-mail" required />
+            <div class="col-11">
+              <p>  Balaghat, Madhya Pradesh India </p>
             </div>
-
-            <div class="mb-3">
-              <input type="text" class="form-control" name="phone" placeholder="Mobile No." required />
+          </div>
+          <div class="row justify-content-evenly">
+            <div class="col-1">
+              <i class="bi bi-telephone-fill"></i>
             </div>
-
-            <div class="mb-3">
-              <textarea class="form-control" name="message" placeholder="Message" rows="5" required></textarea>
+            <div class="col-11">
+              <p>+91 62631-10540</p>
             </div>
-
-            <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill" type="submit">
-              Submit
-            </button>
-          </form>
+          </div>
+          <div class="row justify-content-evenly">
+            <div class="col-1">
+              <i class="bi bi-send-fill"></i>
+            </div>
+            <div class="col-11">
+              <p>kumarsulabh2003@gmail.com</p>
+            </div>
+          </div>
+          <div class="row justify-content-evenly">
+            <div class="col-1">
+              <i class="bi bi-globe-americas"></i>
+            </div>
+            <div class="col-11">
+              <p>sulabh.com</p>
+            </div>
+          </div>
         </div>
+        <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
 
 
-
-  </section>
-  <!-- contact section ends here -->
-
-  <!-- now we will make back to top button when user click on it it will be redirected to top page  -->
-  <button type="button" class="btn btn-floating btn-lg rounded-pill" id="btn-back-to-top">
-
-    <i class="bi bi-arrow-up"></i>
-  </button>
+        
 
 
-  <!-- footer section starts  -->
-  <footer class="text-center text-muted py-4">
-    <h3 class="text-white pt-4" data-aos="fade-up">Portfolio</h3>
-    <div class="link-group mt-5" data-aos="fade-up">
-      <a href="#home">Home</a>
-      <div class="vr"></div>
-      <a href="#about">About</a>
-      <div class="vr"></div>
-      <a href="#service">Service</a>
-      <div class="vr"></div>
-      <a href="#portfolio">Portfolio</a>
-      <div class="vr"></div>
-      <a href="#blog">Blog</a>
-      <div class="vr"></div>
-      <a href="#contact">Contact</a>
-    </div>
+      <div class="contact-form">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="6942c2b0-fb2e-4812-b3c4-1be1259080e7">
+      
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="Name"
+              required
+            />
+          </div>
+      
+          <div class="mb-3">
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              placeholder="E-mail"
+              required
+            />
+          </div>
+      
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              name="phone"
+              placeholder="Mobile No."
+              required
+            />
+          </div>
+      
+          <div class="mb-3">
+            <textarea
+              class="form-control"
+              name="message"
+              placeholder="Message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+      
+          <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+      
 
-    <div class="social-links mt-5" data-aos="fade-up">
-      <a href="https://www.facebook.com/share/16FCCC9CAN/?mibextid=qi2Omg">
+
+    </section>
+    <!-- contact section ends here -->
+
+      <!-- now we will make back to top button when user click on it it will be redirected to top page  -->
+    <button
+      type="button"
+      class="btn btn-floating btn-lg rounded-pill"
+      id="btn-back-to-top"
+    >
+    
+      <i class="bi bi-arrow-up"></i>
+    </button>
+    
+
+    <!-- footer section starts  -->
+    <footer class="text-center text-muted py-4">
+      <h3 class="text-white pt-4" data-aos="fade-up">Portfolio</h3>
+      <div class="link-group mt-5" data-aos="fade-up">
+        <a href="#home">Home</a>
+        <div class="vr"></div>
+        <a href="#about">About</a>
+        <div class="vr"></div>
+        <a href="#service">Service</a>
+        <div class="vr"></div>
+        <a href="#portfolio">Portfolio</a>
+        <div class="vr"></div>
+        <a href="#blog">Blog</a>
+        <div class="vr"></div>
+        <a href="#contact">Contact</a>
+      </div>
+      
+      <div class="social-links mt-5" data-aos="fade-up">
+        <a href="https://www.facebook.com/share/16FCCC9CAN/?mibextid=qi2Omg">
         <button href="" class="rounded-pill dribble">
           <i class="fa-brands fa-facebook fa-xl" style="color: #1877f2;"></i>
         </button>
-      </a>
-      <a href="https://wa.me/916263110540" target="_blank">
-        <button class="rounded-pill whatsapp">
+</a>
+        <a href="https://wa.me/916263110540" target="_blank">
+        <button   class="rounded-pill whatsapp">
           <i class="bi bi-whatsapp"></i>
         </button>
       </a>
-      <button href="" class="rounded-pill behance">
-        <i class="fa-brands fa-x-twitter"></i>
-      </button>
-    </div>
-    <hr class="text-muted my-4" />
+        <button href="" class="rounded-pill behance">
+          <i class="fa-brands fa-x-twitter"></i>
+        </button>
+      </div>
+      <hr class="text-muted my-4" />
 
+      
+    </footer>
+    <!-- footer section ends here -->
 
-  </footer>
-  <!-- footer section ends here -->
+      <!-- bootstrap javascript cdn link  -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- bootstrap javascript cdn link  -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
+    <!-- AOS library javascript link  -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // initializing AOS library
+      AOS.init({
+        duration: 1000,
+        offset: 50,
+      });
 
-  <!-- AOS library javascript link  -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    // initializing AOS library
-    AOS.init({
-      duration: 1000,
-      offset: 50,
-    });
-
-  </script>
-  <!-- custom js file linking -->
-  <script src="js/script.js"></script>
-
-   
-</body>
-
+    </script>
+    <!-- custom js file linking -->
+    <script src="js/script.js"></script>
+    
+  </body>
 </html>
